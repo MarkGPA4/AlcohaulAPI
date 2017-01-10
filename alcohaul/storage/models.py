@@ -53,7 +53,7 @@ class alcohol(models.Model):
 	quantity_left = models.IntegerField()
 	stores = models.ManyToManyField(store)
 	
-	def __str__():
+	def __str__(self):
 		return self.name
 		
 	def __repr__(self):
