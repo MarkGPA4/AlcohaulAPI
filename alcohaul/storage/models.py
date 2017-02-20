@@ -9,19 +9,19 @@ from django.db import models
 
 class store(models.Model):
 
-	name =  models.CharField(max_length=250)
-	location = models.CharField(max_length=250)
-	address = models.CharField(max_length=250)
-	max_number_of_customer_at_one_time = models.CharField(max_length=250)
-	working_driver = models.CharField(max_length=250)
-	date_created = models.CharField(max_length=250)
-	UID = models.CharField(max_length=250)
-	is_deleted = models.CharField(max_length=250)
-	discription = models.CharField(max_length=250)
-	contact_first = models.CharField(max_length=250)
-	contact_last = models.CharField(max_length=250)
-	rating = models.CharField(max_length=250)
-	number = models.CharField(max_length=250)
+	name =  models.CharField(max_length=250,null=True)
+	location = models.CharField(max_length=250,null=True)
+	address = models.CharField(max_length=250,null=True)
+	max_number_of_customer_at_one_time = models.CharField(max_length=250,null=True)
+	working_driver = models.CharField(max_length=250,null=True)
+	date_created = models.CharField(max_length=250,null=True)
+	UID = models.CharField(max_length=250,null=True)
+	is_deleted = models.CharField(max_length=250,null=True)
+	discription = models.CharField(max_length=250,null=True)
+	contact_first = models.CharField(max_length=250,null=True)
+	contact_last = models.CharField(max_length=250,null=True)
+	rating = models.CharField(max_length=250,null=True)
+	number = models.CharField(max_length=250,null=True)
 	#picture = models.ImageField()
 	#alcohols = models.ManyToManyField(alcohol)
 
@@ -35,24 +35,26 @@ class store(models.Model):
 
 
 class alcohol(models.Model):
-	name = models.CharField(max_length=250) 
-	price = models.FloatField(max_length=250)
-	quantity = models.IntegerField()
-	volume = models.IntegerField()
-	brand = models.CharField(max_length=250)
-	Type = models.CharField(max_length=250)
-	subtype = models.CharField(max_length=250)
-	origin = models.CharField(max_length=250)
-	description = models.CharField(max_length=500)
-	rating = models.IntegerField()
-	available = models.BooleanField()
+	name = models.CharField(max_length=250,null=True) 
+	price = models.FloatField(max_length=250,null=True)
+	quantity = models.IntegerField(null=True)
+	volume = models.IntegerField(null=True)
+	brand = models.CharField(max_length=250,null=True)
+	Type = models.CharField(max_length=250,null=True)
+	subtype = models.CharField(max_length=250,null=True)
+	origin = models.CharField(max_length=250,null=True)
+	description = models.CharField(max_length=500,null=True)
+	rating = models.IntegerField(null=True)
+	available = models.NullBooleanField(null=True)
 	#picture = models.ImageField()
-	special = models.BooleanField()
-	UID = models.IntegerField()
-	number_sold = models.IntegerField()
-	quantity_left = models.IntegerField()
+	special = models.NullBooleanField(null=True)
+	UID = models.IntegerField(null=True)
+	number_sold = models.IntegerField(null=True)
+	quantity_left = models.IntegerField(null=True)
 	stores = models.ManyToManyField(store)
-	
+
+
+
 	def __str__(self):
 		return self.name
 		

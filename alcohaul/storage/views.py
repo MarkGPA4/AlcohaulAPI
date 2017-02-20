@@ -31,7 +31,8 @@ class alcoholList(APIView):
 
 		return Response(serializers.data)
 
-	def post(self, request):
+	def post(self, request, alcohol):
+
 		pass
 
 
